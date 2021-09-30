@@ -1,0 +1,49 @@
+<app-books>
+</app-books>
+
+<div class="card container mt-4">
+    <div class="card-header">
+        Upload Book
+        <!-- {{service.AddBookData | json}} -->
+    </div>
+    <form #form="ngForm" (submit)="onAddBook(form)" autocomplete="off">
+        <div class="card-body row no-gutters ">
+
+            <div class="col-6 col-md-4">
+
+                <!-- <div class="file-upload"> -->
+
+                <img class="add-image" [src]="service.AddBookData.bookImg" alt="no Image found" style="width:37%" />
+
+                <!-- <input type="text" name="BookImg" (change)="onImagePicked($event)" /> -->
+                <!-- </div> -->
+                <div class="w-100"></div>
+                <input class="form-control" placeholder="Enter Your Image URL" type="text" name="BookImg" #BookImg="ngModel" [(ngModel)]="service.AddBookData.bookImg">
+            </div>
+            <div class="col-12 col-sm-6 col-md-8 card-body-2">
+                <div class="row">
+                    <div class="col mb-3">
+                        <input type="text" class="form-control" id="bookName" placeholder="Book Name" name="BookName" #BookName="ngModel" [(ngModel)]="service.AddBookData.bookName">
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col mb-3">
+                        <input type="text" class="form-control" id="authorname" placeholder="Author Name" name="AuthortName" #AuthortName="ngModel" [(ngModel)]="service.AddBookData.authortName">
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col mb-3">
+                        <!-- <input type="text" class="form-control" id="details" placeholder="Details"> -->
+                        <textarea class="form-control" id="details" rows="3" placeholder="Description" name="Description" #Description="ngModel" [(ngModel)]="service.AddBookData.description"></textarea>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col mb-3">
+                        <input type="number" class="form-control" id="price" placeholder="Price" name="Price" #Price="ngModel" [(ngModel)]="service.AddBookData.price">
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col mb-3">
+                        <button type="submit" class="btn btn-warning btn-block">Upload</button> </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

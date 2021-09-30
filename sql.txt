@@ -1,0 +1,64 @@
+CREATE TABLE [dbo].[Users]
+(
+	[UserId] INT NOT NULL Identity , 
+	[UserName] NVARCHAR(50) NOT NULL,
+	[FirstName] NVARCHAR(50) NOT NULL,
+	[LastName] NVARCHAR(50) NOT NULL,
+	[Email] NVARCHAR(50) NOT NULL,
+    [Password] INT NOT NULL, 
+    PRIMARY KEY ([UserId]),
+);
+
+-----------------------------
+CREATE TABLE [dbo].[Book]
+(
+	[BookId] INT NOT NULL Identity , 
+	[BookName] NVARCHAR(50) NOT NULL,
+	[AuthortName] NVARCHAR(50) NOT NULL,
+	[Description] NVARCHAR(50) NOT NULL,
+	[Price] INT NOT NULL,
+
+    [BookFrontImage] VARBINARY(MAX) NOT NULL,
+	[UserId] INT NOT NULL,
+    PRIMARY KEY ([BookId]),
+	Foreign key([UserId]) references dbo.Users([UserId])
+);
+
+Alter Table [dbo].[Book]
+drop [BookFrontImage] 
+
+
+Alter Table [dbo].[Book]
+add CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP;
+
+Alter Table [dbo].[Book]
+drop BookImg; 
+
+Alter Table [dbo].[Book]
+add  BookImg  varchar(max); 
+----------------------------------
+CREATE TABLE [dbo].[Cart]
+(
+	[CartId] INT NOT NULL Identity , 
+	[Quantity] INT NOT NULL,
+	[SumTotal] INT NOT NULL,
+    [BookId] INT NOT NULL,
+	[UserId] INT NOT NULL,
+    PRIMARY KEY ([CartId]),
+	Foreign key([UserId]) references dbo.Users([UserId]),
+	Foreign key([BookId]) references dbo.Book([BookId])
+);
+
+
+-----------------------------
+CREATE TABLE [dbo].[Order]
+(
+	[OrderId] INT NOT NULL Identity , 
+	[CartId] INT ,
+    [BookId] INT NOT NULL,
+	[UserId] INT NOT NULL,
+    PRIMARY KEY ([OrderId]),
+	Foreign key([UserId]) references dbo.Users([UserId]),
+	Foreign key([BookId]) references dbo.Book([BookId]),
+	Foreign key([CartId]) references dbo.Cart([CartId])
+);

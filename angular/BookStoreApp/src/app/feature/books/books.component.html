@@ -1,0 +1,60 @@
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/fontawesome.min.css" integrity="sha512-Rcr1oG0XvqZI1yv1HIg9LgZVDEhf2AHjv+9AuD1JXWGLzlkoKDVvE925qySLcEywpMAYA/rkg296MkvqBF07Yw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<div class="mat-typography">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Brand" src="https://source.unsplash.com/40x40">
+                </a>
+                <h2 class="navbar-text">Website Name</h2>
+
+            </div>
+            <button class="btn  btn-danger m-2 btn-signup" type="submit" (click)="onLogOut()">LogOut</button>
+        </div>
+
+    </nav>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <ul class="nav nav-pills justify-content-center font-large">
+                <li role="presentation">
+                    <a class="nav-link" routerLink="/home">
+                Home
+            </a>
+                </li>
+                <li role="presentation">
+                    <a class="nav-link" routerLink="/get-category-book">
+                Category
+            </a></li>
+                <li role="presentation">
+                    <a class="nav-link" routerLink="/get-cart-details">
+                Cart
+            </a></li>
+                <li role="presentation"> <a class="nav-link" routerLink="/add-book">
+            Upload
+        </a></li>
+            </ul>
+
+        </div>
+    </nav>
+</div>
+
+<router-outlet></router-outlet>

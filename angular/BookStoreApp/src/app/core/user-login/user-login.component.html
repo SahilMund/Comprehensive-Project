@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-between">
+
+    <h3>LogIn User</h3>
+
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+
+<div style="overflow: auto; height: 450px;">
+    <form #form="ngForm" (submit)="loginForm(form)" autocomplete="off">
+
+        <div *ngIf="inValidLogin" class="alert alert-danger">Invalid Credentials</div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Email </span>
+            </div>
+
+            <input required minlength="2" type="email" class="form-control" name="Email" #Email="ngModel" [(ngModel)]="service.loginFormData.email">
+        </div>
+        <div class="text-left text-danger" *ngIf="Email.invalid && Email.touched">
+            Please enter Email .
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Password</span>
+            </div>
+
+            <input required minlength="2" type="text" class="form-control" name="Password" #Password="ngModel" [(ngModel)]="service.loginFormData.password">
+        </div>
+        <div class="text-left text-danger" *ngIf="Password.invalid && Password.touched">
+            Please enter Password .
+        </div>
+
+
+        <div class="mt-4 input-group">
+            <a type="submit" (click)="UpdatePassword()">Forgot Password</a>
+        </div>
+
+
+        <button class="mt-4" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">LogIn</button>
+
+
+    </form>
+
+</div>

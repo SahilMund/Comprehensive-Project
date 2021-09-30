@@ -1,0 +1,84 @@
+<div class="d-flex justify-content-between">
+
+    <h3>Register User</h3>
+
+    <button mat-button (click)="onClose()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<!-- {{dataSourceFromSibling | json}}
+<hr/>  -->
+
+<!-- {{service.UserFormData | json}} -->
+
+<div style="overflow: auto; height: 450px;">
+    <form #form="ngForm" (submit)="onSubmitUser(form)" autocomplete="off">
+        <!-- <form> -->
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">UserName</span>
+            </div>
+
+            <input required minlength="2" type="text" class="form-control" name="UserName" #UserName="ngModel" [(ngModel)]="service.UserFormData.userName">
+        </div>
+        <div class="text-left text-danger" *ngIf="UserName.invalid && UserName.touched">
+            Please enter UserName .
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">First Name</span>
+            </div>
+
+            <input required minlength="2" type="text" class="form-control" name="FirstName" #FirstName="ngModel" [(ngModel)]="service.UserFormData.firstName">
+        </div>
+        <div class="text-left text-danger" *ngIf="FirstName.invalid && FirstName.touched">
+            Please enter FirstName .
+        </div>
+
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Last Name</span>
+            </div>
+
+            <input required minlength="2" type="text" class="form-control" name="LastName" #LastName="ngModel" [(ngModel)]="service.UserFormData.lastName">
+        </div>
+        <div class="text-left text-danger" *ngIf="LastName.invalid && LastName.touched">
+            Please enter LastName .
+        </div>
+
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Email </span>
+            </div>
+
+            <input required minlength="2" type="email" class="form-control" name="Email" #Email="ngModel" [(ngModel)]="service.UserFormData.email">
+        </div>
+        <div class="text-left text-danger" *ngIf="Email.invalid && Email.touched">
+            Please enter Email .
+        </div>
+
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Password</span>
+            </div>
+
+            <input required minlength="2" type="text" class="form-control" name="Password" #Password="ngModel" [(ngModel)]="service.UserFormData.password">
+        </div>
+        <div class="text-left text-danger" *ngIf="Password.invalid && Password.touched">
+            Please enter Password .
+        </div>
+
+
+
+
+
+        <!-- <button class="mt-4" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Edit</button> -->
+        <button class="mt-4 btn-block" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">SignUp</button>
+
+    </form>
+
+</div>

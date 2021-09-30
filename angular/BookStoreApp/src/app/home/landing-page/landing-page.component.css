@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Libre+Franklin:ital,wght@1,600&display=swap');
+.landing-page {
+    background-color: #75c2ff !important;
+    height: 93%;
+    padding-top: 70px;
+}
+
+.content h1,
+h3 {
+    padding-left: 40px !important;
+    color: whitesmoke;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+.content h1 {
+    font-size: 40px;
+    padding-bottom: 30px;
+    ;
+}
+
+.content h3 {
+    font-size: 20px;
+}
+
+.content span {
+    color: #fce759;
+}
+
+.light-color {
+    color: #fce759;
+}

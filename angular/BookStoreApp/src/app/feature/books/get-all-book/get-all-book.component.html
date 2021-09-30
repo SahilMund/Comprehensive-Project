@@ -1,0 +1,25 @@
+<app-books>
+</app-books>
+
+<div class="search-container container-fluid mb-4">
+    <form action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search" [(ngModel)]="searchText" autocomplete="off">
+
+    </form>
+</div>
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm mt-2 mb-2" *ngFor="let item of bookList | filter:searchText">
+            <div class="card">
+                <img class="card-img-top" src="{{item.bookImg}}" alt="not found">
+                <div class="card-body">"
+                    <strong>   <h3 class="card-title">{{item.bookName}}</h3></strong>
+                    <h4 class="author-name">Author : {{item.authortName}}</h4>
+                    <p class="card-text">Description : {{item.description}}</p>
+                    <a class="btn btn-primary" (click)="GetBookById(item.bookId)">Click Me</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

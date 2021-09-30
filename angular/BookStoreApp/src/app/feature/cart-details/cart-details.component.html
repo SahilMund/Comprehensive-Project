@@ -1,0 +1,36 @@
+<app-books>
+</app-books>
+<!-- {{cartList | json}} -->
+<div class="search-container container-fluid mb-4">
+    <form action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search" [(ngModel)]="searchText" autocomplete="off">
+
+    </form>
+</div>
+
+
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">S.l</th>
+                <th scope="col"># </th>
+                <th scope="col">Book Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Sum Total</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of cartList | filter:searchText">
+            <tr>
+                <th scope="row">1</th>
+                <td><button class="btn btn-danger" (click)="onDeleteCart(item)">X</button></td>
+                <td>{{item.bookName}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.sumTotal}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

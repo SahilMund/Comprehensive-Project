@@ -1,0 +1,51 @@
+.navbar-body {
+    background-color: #75c2ff !important;
+}
+
+a {
+    color: #eaf5ff !important;
+}
+
+form {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+.navbar-nav.navbar-right {
+    position: absolute;
+    left: 98%;
+    transform: translatex(-98%);
+}
+
+.btn {
+    margin-top: 30px;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding: 6px;
+}
+
+.btn-signup {
+    outline-color: #ffe856 !important;
+    border-color: #eaf5ff;
+    color: black;
+    background-color: #ffe856;
+}
+
+.btn-login {
+    border-color: #eaf5ff;
+    color: #eaf5ff;
+}
+
+.btn-forgorpwd {
+    border-color: #eaf5ff;
+    color: #eaf5ff;
+}
+
+.search-bar {
+    width: 430px
+}
+
+.home-item {
+    margin-left: 60px;
+}

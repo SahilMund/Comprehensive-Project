@@ -1,0 +1,64 @@
+<div class="card container mt-4" *ngFor="let item of dataSourceFromSibling">
+    <div class="card-header">
+        <a (click)="goBack()">Back</a>
+        <!-- {{cartService.AddCartData | json}} -->
+        <h2>{{item.bookName}}</h2>
+    </div>
+    <!-- *ngFor="let item in dataSourceFromSibling" -->
+    <div>
+        <div class="card-body row no-gutters ">
+
+            <div class="col-6 col-md-4">
+
+                <img *ngIf="!item.bookImg" src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
+                <img *ngIf="item.bookImg" src="{{item.bookImg}}" alt="Avatar" style="width:100%">
+
+                <button type="button" class="btn btn-lg btn-primary mt-2 btn-block" disabled>$ {{item.price}}</button>
+
+                <ngb-rating [max]="5" [(rate)]="this.service.review" name="rating" [readonly]="false" (click)="onReview(item.bookId)"></ngb-rating>
+                <p>Rate: {{this.service.review}}</p>
+
+            </div>
+            <div class="col-12 col-sm-6 col-md-8 card-body-2">
+                <div class="row">
+                    <div class="col mb-3">
+                        <textarea class="form-control" id="details" rows="3" placeholder="details" disabled>{{item.description}}</textarea>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col mb-3">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button type="submit" (click)="minus()" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                                 -
+                            </button>
+                            </span>
+                            <input type="text" id="quantity" name="quantity" #quantity="ngModel" [(ngModel)]="cartService.AddCartData.quantity" class="form-control input-number" value="10" min="1" max="100">
+                            <span class="input-group-btn">
+                                <button type="submit" (click)="plus()" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                   +
+                            </button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="w-100"></div>
+                    <div class="col mb-3">
+
+                        <button type="submit" class="btn btn-secondary btn-block" (click)="AddToCart(item)">Add To Cart</button>
+
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col mb-3">
+                        <button type="button" class="btn btn-success btn-block" (click)="BuyNow(item)">Buy Now</button> </div>
+                    <div class="w-100"></div>
+                    <div class="col mb-3">
+                        <h3>Published By {{item.authortName}}</h3>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

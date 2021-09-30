@@ -1,0 +1,76 @@
+
+Folder Layered Architecture:-
+
+(controller-services-repository-model)
+
+DB first approach:-
+
+1)Create a database,table and add some value to it.
+
+2)Create a .NET CORE web api project
+
+3) Install microsoft sqlserver and entity frmaework tool
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+
+4)Now let's scaffold our database table so that it can create Models:-
+Let's type this below coomand in the package mangaer console:-
+
+Scaffold-DbContext "Server=.\SQLExpress;Database=GiftCardDB;Trusted_Connection=True;"Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+5)Create a folder:- Repository with two files(IBookRepo and BookRepo)
+Here BookRepo implements IBookRepo
+
+
+6)Create a folder:- Repository with two files(IBookService and BookService)
+Here BookService implements IBookService
+
+7)Now add a empty webapi controller :- BookController
+
+8)Let's implement swagger in our project:-
+	a)Install Nswag.AspNetCore
+	b)Let's add some code to the confugureservices method in startup.cs :-
+		
+	   services.AddSwaggerDocument(settings =>
+            {
+                settings.Title = "Emps";
+            });
+
+	c)Let's add two pielines in the configure method in startup.cs :-
+
+	 app.UseOpenApi();
+            app.UseSwaggerUi3();
+
+
+--------------------------logger ----------------------------
+
+
+ private readonly IProductServices _empObj;
+ private readonly ILogger _logger;
+
+      
+
+        public EmployeeController(IProductServices empObj,ILogger logger)
+        {
+            _empObj = empObj;
+	   _logger=logger;
+        }
+        [HttpGet]
+        public ActionResult<IEnumerable<Employee>> GetAllEmp()
+        {
+          
+            var emp = _empObj.GetAll();
+	_logger.LogInformation("Getting the data from the database");
+            if(emp == null)
+            {
+                return NotFound();
+            }
+            return Ok(emp);
+        }
+
+
+-------------------------
+
+
+Scaffold-DbContext "Server=.\SQLExpress;Database=OnlineBookStoreDB;Trusted_Connection=True;"Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models 
+-force

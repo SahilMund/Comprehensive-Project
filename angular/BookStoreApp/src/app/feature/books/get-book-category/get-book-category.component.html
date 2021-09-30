@@ -1,0 +1,78 @@
+<app-books>
+</app-books>
+<div class="mat-typography">
+    <div class="panel panel-default mt-5">
+        <div class="panel-heading">
+            <h3 class="panel-title "> <strong> Best Sellers </strong></h3>
+        </div>
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm mt-2 mb-2" *ngFor="let item of bookCatList?.bestSellers ">
+                    <div class="card">
+                        <img class="card-img-top" src="{{item?.bookImg}}" alt="not found">
+                        <div class="card-body">"
+                            <strong>   <h3 class="card-title">{{item?.bookName}}</h3></strong>
+                            <h4 class="author-name">Author : {{item?.authorName}}</h4>
+                            <p class="card-text">Description : {{item?.descrption}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="panel panel-default mt-5">
+        <div class="panel-heading">
+            <h3 class="panel-title "> <strong> Trending Books </strong></h3>
+        </div>
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm mt-2 mb-2" *ngFor="let item of bookCatList?.trendingBooks ">
+                    <div class="card">
+                        <img class="card-img-top" src="{{item.bookImg}}" alt="not found">
+                        <div class="card-body">"
+                            <strong>   <h3 class="card-title">{{item.bookName}}</h3></strong>
+                            <h4 class="author-name">Author : {{item.authortName}}</h4>
+                            <p class="card-text">Description : {{item.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="panel panel-default mt-5">
+    <div class="panel-heading">
+        <h3 class="panel-title "> <strong> Latest Uploads </strong></h3>
+    </div>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm mt-2 mb-2" *ngFor="let item of bookCatList?.latestUploads ">
+                <div class="card">
+                    <img class="card-img-top" src="{{item.bookImg}}" alt="not found">
+                    <div class="card-body">"
+                        <strong>   <h3 class="card-title">{{item.bookName}}</h3></strong>
+                        <h4 class="author-name">Author : {{item.authortName}}</h4>
+                        <p class="card-text">Description : {{item.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
