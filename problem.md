@@ -1,6 +1,6 @@
- ## Ques:-
- <b><p>Online Exam Center is an App which needs to be designed beautifully and most interactive web app using HTML5,AngularJS , Users can sign up with email id and password to create account and start preparing for exams. My Tests option should list of all tests subscribed in exam package with status of each test. This should be also a perfect web app for user to keep a track of each test with time, marks and Number of attempts. Profile option gives you ability to change your password and other personal details.
- </p>
+
+## Angular File/Folder Structure
+
 </b>
 
 
